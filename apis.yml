@@ -20,3 +20,10 @@ maintainers:
   - FN: API Evangelist
     email: info@apievangelist.com
 specificationVersion: '0.19'
+common:
+  - name: Blog
+    url: https://www.lemonade.com/blog/
+    type: Blog
+  - name: FAQ
+    url: https://www.lemonade.com/faq
+    type: FAQ
