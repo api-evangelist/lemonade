@@ -1,19 +1,21 @@
-aid: lemonade-insurance
+aid: lemonade
 url: https://example.com/apis/the-lemonade-insurance-api-lemonade.yml
 apis:
-  - aid: lemonade-insurance:lemonade-insurance
-    name: The Lemonade Insurance API | Lemonade
+  - aid: lemonade:lemonade-insurance
+    name: The Lemonade Insurance API
     image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
     humanURL: https://www.lemonade.com/api
     description: A quick and easy way for your users to protect their homes and stuff!
 name: The Lemonade Insurance API | Lemonade
 tags:
-  - Bookmark
+  - Insurance
 image: >-
   https://kinlane-productions2.s3.amazonaws.com/apis-json-icons/the-lemonade-insurance-api-lemonade.png
-created: 2024/7/2
+created: '2024-07-02'
 modified: '2024-11-10'
-description: A quick and easy way for your users to protect their homes and stuff!
+description: >-
+  A quick and easy way for your users to protect their homes and stuff! ~
+  https://www.lemonade.com/api
 maintainers:
   - FN: API Evangelist
     email: info@apievangelist.com
