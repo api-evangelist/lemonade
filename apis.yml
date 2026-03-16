@@ -34,13 +34,13 @@ common:
     url: https://www.lemonade.com/privacy-policy
     type: PrivacyPolicy
 created: '2024-07-02'
-modified: '2024-11-16'
+modified: '2026-03-16'
 description: >-
   Lemonade, Inc. is an American insurance company. The company offers renters'
   insurance, homeowners' insurance, car insurance, pet insurance, and term life
   insurance in the United States, as well as contents and liability policies in
   Germany and the Netherlands and renters' insurance in France. 
 maintainers:
-  - FN: API Evangelist
-    email: info@apievangelist.com
+  - FN: Kin Lane
+    email: kin@apievangelist.com
 specificationVersion: '0.19'
