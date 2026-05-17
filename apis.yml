@@ -7,7 +7,7 @@ description: >-
   insurance in France. The Lemonade Insurance API allows partners to embed
   insurance quoting, policy creation, and payment flows for homeowners, condo,
   and renters policies into their own websites and apps.
-type: Contract
+kind: contract
 image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 access: 3rd-Party
 tags:
