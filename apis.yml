@@ -42,6 +42,8 @@ apis:
       - url: https://www.lemonade.com/blog/introducing-lemonade-insurance-api/
         type: Announcement
 common:
+  - type: LinkedIn
+    url: https://www.linkedin.com/company/lemonade-inc-
   - url: https://www.lemonade.com/
     type: Website
   - url: https://www.lemonade.com/api
