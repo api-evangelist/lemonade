@@ -1,0 +1,1029 @@
+"""
+Lemonade Insurance Platform - Conceptual GraphQL Schema
+
+Lemonade is an AI-native digital insurance company offering renters, homeowners,
+car, pet, term life, and business insurance. This schema represents the domain
+model derived from the Lemonade Partner API and public documentation.
+
+Source: https://api-doc-portal.lemonade.com/ and https://www.lemonade.com/api
+Note: Lemonade does not publish a public GraphQL endpoint. This is a conceptual
+schema for developer reference.
+"""
+
+# ---------------------------------------------------------------------------
+# Scalars
+# ---------------------------------------------------------------------------
+
+scalar DateTime
+scalar Date
+scalar Decimal
+scalar JSON
+
+# ---------------------------------------------------------------------------
+# Enums
+# ---------------------------------------------------------------------------
+
+"""The type of insurance policy."""
+enum PolicyType {
+  RENTERS
+  HOMEOWNERS
+  CONDO
+  CAR
+  PET
+  LIFE
+  BUSINESS
+  MOBILE_DEVICE
+  TRAVEL
+  BUNDLE
+}
+
+"""Current lifecycle status of a policy."""
+enum PolicyStatus {
+  PENDING
+  ACTIVE
+  CANCELLED
+  EXPIRED
+  LAPSED
+  RENEWAL_PENDING
+}
+
+"""Category of claim being filed."""
+enum ClaimType {
+  THEFT
+  FIRE
+  WATER_DAMAGE
+  WIND_DAMAGE
+  VANDALISM
+  LIABILITY
+  MEDICAL_PAYMENTS
+  LOSS_OF_USE
+  PET_ILLNESS
+  PET_ACCIDENT
+  COLLISION
+  COMPREHENSIVE
+  DEATH_BENEFIT
+  TRAVEL_CANCELLATION
+  DEVICE_DAMAGE
+  DEVICE_THEFT
+  OTHER
+}
+
+"""Current processing status of a claim."""
+enum ClaimStatus {
+  RECEIVED
+  UNDER_REVIEW
+  APPROVED
+  APPROVED_INSTANTLY
+  DENIED
+  PENDING_DOCUMENTATION
+  SETTLED
+  PAID
+  CLOSED
+  REOPENED
+}
+
+"""Billing frequency for premium payments."""
+enum BillingFrequency {
+  MONTHLY
+  QUARTERLY
+  SEMI_ANNUAL
+  ANNUAL
+}
+
+"""Type of property being insured."""
+enum PropertyType {
+  HOUSE
+  APARTMENT
+  CONDO
+  TOWNHOUSE
+  MOBILE_HOME
+  OTHER
+}
+
+"""How the insured occupies the property."""
+enum OccupancyType {
+  OWNER
+  RENTER
+  TENANT
+}
+
+"""Identity verification status."""
+enum KYCStatus {
+  NOT_STARTED
+  PENDING
+  VERIFIED
+  FAILED
+  REQUIRES_REVIEW
+}
+
+"""Status of a payment transaction."""
+enum PaymentStatus {
+  PENDING
+  COMPLETED
+  FAILED
+  REFUNDED
+  CHARGEBACK
+}
+
+"""Reason for policy cancellation."""
+enum CancellationReason {
+  CUSTOMER_REQUEST
+  NON_PAYMENT
+  FRAUD
+  UNDERWRITING
+  MOVED_OUT_OF_COVERAGE_AREA
+  POLICY_EXPIRED
+  OTHER
+}
+
+"""Risk tier classification."""
+enum RiskTier {
+  VERY_LOW
+  LOW
+  MODERATE
+  HIGH
+  VERY_HIGH
+  INELIGIBLE
+}
+
+"""Pet species for pet insurance."""
+enum PetSpecies {
+  DOG
+  CAT
+  OTHER
+}
+
+"""Coverage type categories."""
+enum CoverageType {
+  DWELLING
+  PERSONAL_PROPERTY
+  LIABILITY
+  ADDITIONAL_LIVING_EXPENSES
+  MEDICAL_PAYMENTS
+  COLLISION
+  COMPREHENSIVE
+  UNINSURED_MOTORIST
+  PET_ACCIDENT
+  PET_ILLNESS
+  WELLNESS
+  DEATH_BENEFIT
+  ACCIDENTAL_DEATH
+  BUSINESS_PROPERTY
+  BUSINESS_LIABILITY
+  DEVICE_REPAIR
+  DEVICE_REPLACEMENT
+  TRIP_CANCELLATION
+  EMERGENCY_EVACUATION
+}
+
+# ---------------------------------------------------------------------------
+# Core Policy Types
+# ---------------------------------------------------------------------------
+
+"""An active or historical insurance policy on the Lemonade platform."""
+type Policy {
+  id: ID!
+  policyNumber: String!
+  type: PolicyType!
+  status: PolicyStatus!
+  customer: Customer!
+  coverages: [Coverage!]!
+  premium: Premium!
+  deductible: Deductible!
+  endorsements: [Endorsement!]
+  riders: [Rider!]
+  underwriting: Underwriting
+  billingCycle: BillingCycle!
+  startDate: Date!
+  endDate: Date!
+  renewalDate: Date
+  cancellation: Cancellation
+  renewal: Renewal
+  claims: [Claim!]
+  documents: [Documentation!]
+  bundlePolicy: BundlePolicy
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+"""The type of policy as an enum wrapper with display metadata."""
+type PolicyType {
+  value: PolicyType!
+  label: String!
+  description: String
+  availableInRegions: [String!]!
+}
+
+"""A specific coverage element attached to a policy."""
+type Coverage {
+  id: ID!
+  policy: Policy!
+  type: CoverageType!
+  label: String!
+  description: String
+  limit: CoverageLimit!
+  deductible: Deductible
+  isRequired: Boolean!
+  isActive: Boolean!
+}
+
+"""The maximum payout amount for a coverage element."""
+type CoverageLimit {
+  amount: Decimal!
+  currency: String!
+  perOccurrence: Decimal
+  aggregate: Decimal
+  description: String
+}
+
+"""The amount the insured pays before coverage applies."""
+type Deductible {
+  amount: Decimal!
+  currency: String!
+  type: String
+  description: String
+}
+
+"""Periodic payment amount and billing schedule for a policy."""
+type Premium {
+  id: ID!
+  policy: Policy!
+  amount: Decimal!
+  currency: String!
+  frequency: BillingFrequency!
+  nextDueDate: Date!
+  pricingFactors: [PricingFactor!]
+  effectiveDate: Date!
+}
+
+# ---------------------------------------------------------------------------
+# Claims
+# ---------------------------------------------------------------------------
+
+"""A filed insurance claim."""
+type Claim {
+  id: ID!
+  claimNumber: String!
+  policy: Policy!
+  customer: Customer!
+  type: ClaimType!
+  status: ClaimStatus!
+  incident: Incident!
+  aiAnalysis: ClaimAI
+  instantApproval: InstantClaimApproval
+  settlement: ClaimSettlement
+  payment: ClaimPayment
+  documents: [Documentation!]
+  filedAt: DateTime!
+  updatedAt: DateTime!
+  closedAt: DateTime
+}
+
+"""The event underlying a claim filing."""
+type Incident {
+  id: ID!
+  claim: Claim!
+  occurredAt: DateTime!
+  location: HomeAddress
+  description: IncidentDescription!
+  reportedToPolice: Boolean
+  policeReportNumber: String
+  witnesses: [String!]
+  photos: [String!]
+}
+
+"""Natural language description of the incident provided by the claimant."""
+type IncidentDescription {
+  text: String!
+  language: String!
+  submittedAt: DateTime!
+  processedByAI: Boolean!
+}
+
+"""The resolution of a claim after review."""
+type ClaimSettlement {
+  id: ID!
+  claim: Claim!
+  approvedAmount: Decimal!
+  currency: String!
+  denialReason: String
+  settlementDate: Date!
+  notes: String
+}
+
+"""Disbursement of claim settlement funds to the customer."""
+type ClaimPayment {
+  id: ID!
+  claim: Claim!
+  settlement: ClaimSettlement!
+  amount: Decimal!
+  currency: String!
+  paymentMethod: String!
+  status: PaymentStatus!
+  initiatedAt: DateTime!
+  completedAt: DateTime
+  transactionReference: String
+}
+
+# ---------------------------------------------------------------------------
+# Quoting
+# ---------------------------------------------------------------------------
+
+"""A price estimate generated for a prospective insurance policy."""
+type Quote {
+  id: ID!
+  request: QuoteRequest!
+  response: QuoteResponse!
+  expiresAt: DateTime!
+  convertedToPolicy: Policy
+  createdAt: DateTime!
+}
+
+"""Input parameters for generating an insurance quote."""
+type QuoteRequest {
+  id: ID!
+  policyType: PolicyType!
+  customer: Customer
+  propertyDetails: PropertyDetails
+  coverageRequests: [CoverageType!]!
+  startDate: Date!
+  additionalParameters: JSON
+  submittedAt: DateTime!
+}
+
+"""The returned quote with pricing, coverage options, and eligibility."""
+type QuoteResponse {
+  id: ID!
+  request: QuoteRequest!
+  eligible: Boolean!
+  ineligibilityReasons: [String!]
+  monthlyPremium: Decimal!
+  annualPremium: Decimal!
+  currency: String!
+  coverageOptions: [Coverage!]!
+  deductibleOptions: [Deductible!]!
+  riskScore: RiskScore
+  generatedAt: DateTime!
+}
+
+# ---------------------------------------------------------------------------
+# Underwriting & Risk
+# ---------------------------------------------------------------------------
+
+"""Abstract risk profile considered during underwriting."""
+interface Risk {
+  id: ID!
+  tier: RiskTier!
+  score: RiskScore!
+  factors: [PricingFactor!]!
+  assessedAt: DateTime!
+}
+
+"""Risk factors specific to a physical property."""
+type PropertyRisk implements Risk {
+  id: ID!
+  tier: RiskTier!
+  score: RiskScore!
+  factors: [PricingFactor!]!
+  assessedAt: DateTime!
+  property: PropertyDetails!
+  constructionYear: Int
+  roofAge: Int
+  hasSecuritySystem: Boolean
+  hasFireSprinklers: Boolean
+  distanceToFireStation: Decimal
+  floodZone: String
+  crimeIndex: Decimal
+}
+
+"""Risk related to a customer's personal belongings."""
+type PersonalPropertyRisk implements Risk {
+  id: ID!
+  tier: RiskTier!
+  score: RiskScore!
+  factors: [PricingFactor!]!
+  assessedAt: DateTime!
+  estimatedValue: Decimal!
+  highValueItems: [String!]
+  storageConditions: String
+}
+
+"""Liability risk exposure for third-party claims."""
+type LiabilityRisk implements Risk {
+  id: ID!
+  tier: RiskTier!
+  score: RiskScore!
+  factors: [PricingFactor!]!
+  assessedAt: DateTime!
+  hasPool: Boolean
+  hasTrampolineOrPlayset: Boolean
+  hasDog: Boolean
+  dogBreed: String
+  priorLiabilityClaims: Int
+}
+
+"""Computed risk score used in pricing and eligibility decisions."""
+type RiskScore {
+  value: Decimal!
+  tier: RiskTier!
+  confidence: Decimal
+  modelVersion: String
+  computedAt: DateTime!
+}
+
+"""An individual factor that influences the premium amount."""
+type PricingFactor {
+  key: String!
+  label: String!
+  impact: Decimal!
+  description: String
+  positive: Boolean!
+}
+
+"""The underwriting decision record for a policy."""
+type Underwriting {
+  id: ID!
+  policy: Policy!
+  decision: String!
+  riskScore: RiskScore!
+  propertyRisk: PropertyRisk
+  personalPropertyRisk: PersonalPropertyRisk
+  liabilityRisk: LiabilityRisk
+  notes: String
+  reviewedBy: String
+  decidedAt: DateTime!
+}
+
+# ---------------------------------------------------------------------------
+# Property Details
+# ---------------------------------------------------------------------------
+
+"""Structural and location details of an insured property."""
+type PropertyDetails {
+  id: ID!
+  address: HomeAddress!
+  type: PropertyType!
+  occupancy: OccupancyType!
+  squareFootage: Int
+  numberOfRooms: Int
+  numberOfBathrooms: Decimal
+  constructionType: String
+  yearBuilt: Int
+  stories: Int
+  rentalProperty: RentalProperty
+  condo: Condo
+  house: House
+  apartment: Apartment
+}
+
+"""Full postal address for an insured property or mailing address."""
+type HomeAddress {
+  street1: String!
+  street2: String
+  city: String!
+  state: String
+  postalCode: String!
+  country: String!
+  latitude: Decimal
+  longitude: Decimal
+  geocoded: Boolean!
+}
+
+"""A rental unit being insured under a renters policy."""
+type RentalProperty {
+  id: ID!
+  propertyDetails: PropertyDetails!
+  landlordName: String
+  landlordEmail: String
+  monthlyRent: Decimal
+  leaseStartDate: Date
+  leaseEndDate: Date
+  buildingHasSprinklers: Boolean
+  floorLevel: Int
+}
+
+"""A condominium unit being insured."""
+type Condo {
+  id: ID!
+  propertyDetails: PropertyDetails!
+  hoaName: String
+  masterPolicyProvider: String
+  unitNumber: String!
+  floorLevel: Int
+  hasStorage: Boolean
+  parkingSpaces: Int
+}
+
+"""A standalone house being insured under a homeowners policy."""
+type House {
+  id: ID!
+  propertyDetails: PropertyDetails!
+  garageType: String
+  hasPool: Boolean
+  hasBasement: Boolean
+  roofType: String
+  roofMaterial: String
+  heatingType: String
+  foundationType: String
+}
+
+"""An apartment unit being insured."""
+type Apartment {
+  id: ID!
+  propertyDetails: PropertyDetails!
+  unitNumber: String!
+  floorLevel: Int
+  buildingName: String
+  buildingSecurityType: String
+  hasElevator: Boolean
+}
+
+# ---------------------------------------------------------------------------
+# Product-Specific Policy Types
+# ---------------------------------------------------------------------------
+
+"""Insurance policy covering a pet (dog or cat)."""
+type PetPolicy {
+  id: ID!
+  policy: Policy!
+  pet: PetCoverage!
+  annualLimit: Decimal!
+  reimbursementRate: Decimal!
+  waitingPeriodDays: Int!
+}
+
+"""Coverage details and pet information for a pet insurance plan."""
+type PetCoverage {
+  id: ID!
+  petPolicy: PetPolicy!
+  petName: String!
+  species: PetSpecies!
+  breed: String!
+  dateOfBirth: Date!
+  gender: String
+  isNeutered: Boolean
+  microchipId: String
+  preExistingConditions: [String!]
+  coverageTypes: [CoverageType!]!
+}
+
+"""Auto insurance policy."""
+type CarPolicy {
+  id: ID!
+  policy: Policy!
+  vehicles: [CarCoverage!]!
+  primaryDriver: Customer!
+  additionalDrivers: [Customer!]
+}
+
+"""Coverage details for a specific vehicle on an auto policy."""
+type CarCoverage {
+  id: ID!
+  carPolicy: CarPolicy!
+  make: String!
+  model: String!
+  year: Int!
+  vin: String!
+  licensePlate: String
+  annualMileage: Int
+  primaryUse: String
+  coverageTypes: [CoverageType!]!
+  collisionDeductible: Deductible
+  comprehensiveDeductible: Deductible
+}
+
+"""Term life insurance policy."""
+type LifePolicy {
+  id: ID!
+  policy: Policy!
+  termYears: Int!
+  faceAmount: Decimal!
+  currency: String!
+  beneficiaries: [Beneficiary!]!
+  coverage: LifeCoverage!
+}
+
+"""Coverage details for a life insurance policy."""
+type LifeCoverage {
+  id: ID!
+  lifePolicy: LifePolicy!
+  coverageType: CoverageType!
+  faceAmount: Decimal!
+  currency: String!
+  termYears: Int!
+  acceleratedDeathBenefit: Boolean!
+  conversionOption: Boolean!
+}
+
+"""Commercial or business insurance policy."""
+type BusinessPolicy {
+  id: ID!
+  policy: Policy!
+  businessName: String!
+  businessType: String!
+  industry: String!
+  annualRevenue: Decimal
+  numberOfEmployees: Int
+  propertyDetails: PropertyDetails
+  coverages: [Coverage!]!
+}
+
+"""A mobile or electronic device being insured."""
+type Device {
+  id: ID!
+  make: String!
+  model: String!
+  serialNumber: String
+  imei: String
+  purchaseDate: Date
+  purchasePrice: Decimal!
+  currency: String!
+  condition: String
+}
+
+"""Device insurance policy for a mobile or electronic device."""
+type MobilePolicy {
+  id: ID!
+  policy: Policy!
+  device: Device!
+  coverageTypes: [CoverageType!]!
+  deductible: Deductible!
+}
+
+"""Travel insurance policy."""
+type TravelerPolicy {
+  id: ID!
+  policy: Policy!
+  destination: String!
+  departureDate: Date!
+  returnDate: Date!
+  tripCost: Decimal!
+  currency: String!
+  travelers: [Customer!]!
+  coverageTypes: [CoverageType!]!
+}
+
+"""A bundle combining two or more Lemonade policy types."""
+type BundlePolicy {
+  id: ID!
+  policies: [Policy!]!
+  customer: Customer!
+  bundleDiscount: Decimal!
+  totalMonthlyPremium: Decimal!
+  currency: String!
+  createdAt: DateTime!
+}
+
+# ---------------------------------------------------------------------------
+# AI & Automation
+# ---------------------------------------------------------------------------
+
+"""Lemonade's AI claims handling agent (AI Jim)."""
+type AIJim {
+  version: String!
+  averageClaimProcessingSeconds: Decimal
+  instantApprovalEligibleTypes: [ClaimType!]!
+  supportedLanguages: [String!]!
+  capabilities: [String!]!
+}
+
+"""AI-assisted analysis applied to a claim during processing."""
+type ClaimAI {
+  id: ID!
+  claim: Claim!
+  fraudProbability: Decimal
+  recommendedDecision: String
+  confidenceScore: Decimal
+  processingTimeSeconds: Decimal!
+  modelVersion: String!
+  analyzedAt: DateTime!
+  flags: [String!]
+}
+
+"""Record of a claim approved instantly through AI processing."""
+type InstantClaimApproval {
+  id: ID!
+  claim: Claim!
+  approvedAmount: Decimal!
+  currency: String!
+  processingTimeSeconds: Decimal!
+  aiModel: String!
+  approvedAt: DateTime!
+  paymentInitiatedAt: DateTime
+}
+
+# ---------------------------------------------------------------------------
+# Policy Modifications
+# ---------------------------------------------------------------------------
+
+"""A modification to coverage added to or removed from an existing policy."""
+type Endorsement {
+  id: ID!
+  policy: Policy!
+  type: String!
+  description: String!
+  premiumChange: Decimal!
+  currency: String!
+  effectiveDate: Date!
+  addedAt: DateTime!
+  removedAt: DateTime
+}
+
+"""An add-on coverage extension attached to a policy."""
+type Rider {
+  id: ID!
+  policy: Policy!
+  type: String!
+  label: String!
+  description: String!
+  additionalPremium: Decimal!
+  currency: String!
+  coverageLimit: CoverageLimit
+  effectiveDate: Date!
+}
+
+# ---------------------------------------------------------------------------
+# Payments & Billing
+# ---------------------------------------------------------------------------
+
+"""A payment transaction for a premium charge or claim disbursement."""
+type Payment {
+  id: ID!
+  customer: Customer!
+  policy: Policy
+  claim: Claim
+  amount: Decimal!
+  currency: String!
+  paymentMethod: String!
+  status: PaymentStatus!
+  description: String
+  initiatedAt: DateTime!
+  completedAt: DateTime
+  transactionReference: String
+  failureReason: String
+}
+
+"""Billing frequency settings and next payment date for a policy."""
+type BillingCycle {
+  id: ID!
+  policy: Policy!
+  frequency: BillingFrequency!
+  nextPaymentDate: Date!
+  lastPaymentDate: Date
+  lastPaymentAmount: Decimal
+  currency: String!
+  autopayEnabled: Boolean!
+}
+
+# ---------------------------------------------------------------------------
+# Policy Lifecycle
+# ---------------------------------------------------------------------------
+
+"""A policy cancellation record."""
+type Cancellation {
+  id: ID!
+  policy: Policy!
+  reason: CancellationReason!
+  requestedBy: String!
+  effectiveDate: Date!
+  refundAmount: Decimal
+  currency: String
+  notes: String
+  cancelledAt: DateTime!
+}
+
+"""A policy renewal record."""
+type Renewal {
+  id: ID!
+  policy: Policy!
+  newPolicyNumber: String
+  newPremium: Premium
+  changesSummary: [String!]
+  sentAt: DateTime
+  acceptedAt: DateTime
+  rejectedAt: DateTime
+  effectiveDate: Date!
+}
+
+# ---------------------------------------------------------------------------
+# Compliance & Documentation
+# ---------------------------------------------------------------------------
+
+"""Know Your Customer identity verification record."""
+type KYC {
+  id: ID!
+  customer: Customer!
+  status: KYCStatus!
+  verifiedName: String
+  verifiedDob: Date
+  verifiedAddress: HomeAddress
+  documentType: String
+  verifiedAt: DateTime
+  failureReason: String
+  provider: String
+}
+
+"""A document associated with a policy, claim, or customer profile."""
+type Documentation {
+  id: ID!
+  type: String!
+  label: String!
+  fileUrl: String
+  mimeType: String
+  uploadedAt: DateTime!
+  policy: Policy
+  claim: Claim
+  customer: Customer
+  expiresAt: DateTime
+}
+
+# ---------------------------------------------------------------------------
+# Users & Customers
+# ---------------------------------------------------------------------------
+
+"""A Lemonade platform user account."""
+type User {
+  id: ID!
+  email: String!
+  firstName: String!
+  lastName: String!
+  phone: String
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  customer: Customer
+}
+
+"""An insured customer profile with policies and claims."""
+type Customer {
+  id: ID!
+  user: User!
+  dateOfBirth: Date
+  primaryAddress: HomeAddress
+  kyc: KYC
+  policies: [Policy!]!
+  claims: [Claim!]!
+  quotes: [Quote!]!
+  payments: [Payment!]!
+  bundlePolicies: [BundlePolicy!]
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+"""A designated beneficiary on a life insurance policy."""
+type Beneficiary {
+  id: ID!
+  lifePolicy: LifePolicy!
+  firstName: String!
+  lastName: String!
+  relationship: String!
+  allocationPercentage: Decimal!
+  dateOfBirth: Date
+  ssn: String
+  address: HomeAddress
+  isPrimary: Boolean!
+}
+
+# ---------------------------------------------------------------------------
+# Queries
+# ---------------------------------------------------------------------------
+
+type Query {
+  """Retrieve a policy by ID."""
+  policy(id: ID!): Policy
+
+  """List all policies for the authenticated customer."""
+  policies(customerId: ID!, status: PolicyStatus): [Policy!]!
+
+  """Retrieve a claim by ID."""
+  claim(id: ID!): Claim
+
+  """List all claims for a policy."""
+  claims(policyId: ID!, status: ClaimStatus): [Claim!]!
+
+  """Retrieve a quote by ID."""
+  quote(id: ID!): Quote
+
+  """List quotes for the authenticated customer."""
+  quotes(customerId: ID!): [Quote!]!
+
+  """Retrieve the authenticated customer profile."""
+  customer(id: ID!): Customer
+
+  """Retrieve a bundle policy by ID."""
+  bundlePolicy(id: ID!): BundlePolicy
+
+  """Retrieve AI Jim's current capabilities and configuration."""
+  aiJim: AIJim
+
+  """Retrieve underwriting details for a policy."""
+  underwriting(policyId: ID!): Underwriting
+
+  """Retrieve billing cycle for a policy."""
+  billingCycle(policyId: ID!): BillingCycle
+
+  """List payments for a customer."""
+  payments(customerId: ID!, limit: Int, offset: Int): [Payment!]!
+
+  """Retrieve KYC record for a customer."""
+  kyc(customerId: ID!): KYC
+}
+
+# ---------------------------------------------------------------------------
+# Mutations
+# ---------------------------------------------------------------------------
+
+type Mutation {
+  """Request a new insurance quote."""
+  requestQuote(input: QuoteRequestInput!): QuoteResponse!
+
+  """Convert a quote to an active policy."""
+  createPolicy(quoteId: ID!, paymentMethodToken: String!): Policy!
+
+  """Update coverage options on an existing policy."""
+  updateCoverage(policyId: ID!, coverageType: CoverageType!, limitAmount: Decimal): Coverage!
+
+  """Add an endorsement to a policy."""
+  addEndorsement(policyId: ID!, type: String!, effectiveDate: Date!): Endorsement!
+
+  """Remove an endorsement from a policy."""
+  removeEndorsement(endorsementId: ID!): Endorsement!
+
+  """File a new insurance claim."""
+  fileClaim(input: ClaimInput!): Claim!
+
+  """Submit documentation for a pending claim."""
+  submitClaimDocumentation(claimId: ID!, documentType: String!, fileUrl: String!): Documentation!
+
+  """Cancel a policy."""
+  cancelPolicy(policyId: ID!, reason: CancellationReason!, effectiveDate: Date!): Cancellation!
+
+  """Accept a policy renewal."""
+  acceptRenewal(renewalId: ID!): Policy!
+
+  """Update billing frequency for a policy."""
+  updateBillingCycle(policyId: ID!, frequency: BillingFrequency!): BillingCycle!
+
+  """Update customer profile information."""
+  updateCustomer(customerId: ID!, input: CustomerUpdateInput!): Customer!
+
+  """Add or update a beneficiary on a life policy."""
+  upsertBeneficiary(lifePolicyId: ID!, input: BeneficiaryInput!): Beneficiary!
+
+  """Remove a beneficiary from a life policy."""
+  removeBeneficiary(beneficiaryId: ID!): ID!
+
+  """Initiate KYC verification for a customer."""
+  initiateKYC(customerId: ID!): KYC!
+}
+
+# ---------------------------------------------------------------------------
+# Input Types
+# ---------------------------------------------------------------------------
+
+input QuoteRequestInput {
+  policyType: PolicyType!
+  firstName: String!
+  lastName: String!
+  email: String!
+  dateOfBirth: Date
+  address: HomeAddressInput
+  startDate: Date!
+  coverageTypes: [CoverageType!]
+  additionalParameters: JSON
+}
+
+input HomeAddressInput {
+  street1: String!
+  street2: String
+  city: String!
+  state: String
+  postalCode: String!
+  country: String!
+}
+
+input ClaimInput {
+  policyId: ID!
+  type: ClaimType!
+  occurredAt: DateTime!
+  description: String!
+  locationAddress: HomeAddressInput
+  reportedToPolice: Boolean
+  policeReportNumber: String
+}
+
+input CustomerUpdateInput {
+  firstName: String
+  lastName: String
+  phone: String
+  primaryAddress: HomeAddressInput
+}
+
+input BeneficiaryInput {
+  firstName: String!
+  lastName: String!
+  relationship: String!
+  allocationPercentage: Decimal!
+  dateOfBirth: Date
+  address: HomeAddressInput
+  isPrimary: Boolean!
+}
