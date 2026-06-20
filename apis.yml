@@ -7,7 +7,7 @@ description: Lemonade, Inc. is an American insurance company. The company offers
   and payment flows for homeowners, condo, and renters policies into their own websites
   and apps.
 kind: contract
-image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
 access: 3rd-Party
 tags:
 - Insurance
