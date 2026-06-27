@@ -62,7 +62,7 @@ common:
   type: PrivacyPolicy
 - url: https://github.com/lemonade-hq
   type: GitHub
-- type: LLMsTxt
+- type: LlmsText
   url: https://www.lemonade.com/llms.txt
 maintainers:
 - FN: Kin Lane
