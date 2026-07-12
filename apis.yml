@@ -42,6 +42,10 @@ apis:
   - url: graphql/lemonade-graphql.md
     type: GraphQL
 common:
+- type: VulnerabilityDisclosure
+  url: security/lemonade-vulnerability-disclosure.yml
+- type: DomainSecurity
+  url: security/lemonade-domain-security.yml
 - type: LinkedIn
   url: https://www.linkedin.com/company/lemonade-inc-
 - url: https://www.lemonade.com/
