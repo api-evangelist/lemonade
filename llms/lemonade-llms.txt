@@ -1,0 +1,157 @@
+# Lemonade (lemonade.com)
+
+> Lemonade is a tech-powered insurance company offering renters, homeowners, car, pet, and life insurance—with a simple online experience, instant claims, and social impact.
+
+## Products
+
+### Car
+
+* **[Car Insurance](https://www.lemonade.com/car)**: Affordable car insurance with simple digital claims and flexible coverage.
+
+#### Car Guides & Resources
+
+* **[Explaining Car](https://www.lemonade.com/car/explained/)**: A clear breakdown of how car insurance works and what's included.
+* **[Pay Per Mile Car Insurance](https://www.lemonade.com/car/explained/pay-per-mile-car-insurance/)**: Save money by paying based on how much you drive.
+* **[Car Insurance Coverage](https://www.lemonade.com/car/explained/what-does-car-insurance-cover/)**: Understand what's covered in your auto insurance policy.
+* **[Car Insurance Cost](https://www.lemonade.com/car/explained/how-much-does-car-insurance-cost/)**: Learn how car insurance pricing works and what affects your rate.
+* **[Comprehensive Car Insurance](https://www.lemonade.com/car/explained/comprehensive-coverage/)**: Protection beyond basic liability, including theft and damage.
+* **[Car Insurance by Vehicle](https://www.lemonade.com/car/vehicles/)**: Explore coverage options for different types of vehicles.
+* **[Car Pay Per Mile Explained](https://www.lemonade.com//car/pay-per-mile/explained/ )**: Understanding pay per mile or pay as you go car insurance.
+
+### Pet
+
+* **[Pet Insurance](https://www.lemonade.com/pet)**: Affordable insurance for cats and dogs covering accidents, illness, and more.
+
+#### Pet Guides & Resources
+
+* **[Explaining Pet](https://www.lemonade.com/pet/explained/)**: Understand how pet insurance works and what's included.
+* **[Dog Insurance](https://www.lemonade.com/pet/dogs)**: Tailored coverage for dogs and their unique needs..
+* **[Cat Insurance](https://www.lemonade.com/pet/cats)**: Tailored coverage for cats and their unique needs.
+* **[Compare Pet Insurance](https://www.lemonade.com/pet/compare)**: See how Lemonade Pet compares to other providers.
+* **[Pet Insurance Coverage](https://www.lemonade.com/pet/explained/pet-insurance/)**: Detailed explanation of coverage for vet bills and more.
+* **[Pet Insurance Cost](https://www.lemonade.com/pet/explained/pet-insurance-cost/)**: A look at how much pet insurance typically costs.
+
+### Renters
+
+* **[Renters Insurance](https://www.lemonade.com/renters)**: Protects your personal belongings from theft, fire, vandalism, and water damage. Includes liability coverage and fast claims.
+
+#### Renters Guides & Resources
+
+* **[Explaining Renters](https://www.lemonade.com/renters/explained/)**: A deep dive into renters insurance, how it works, and why you might need it.
+* **[What is Renters Insurance](https://www.lemonade.com/renters/explained/what-is-renters-insurance/)**: An introduction to the basics of renters insurance and its key benefits.
+* **[Renters Insurance Coverage](https://www.lemonade.com/renters/explained/what-is-renters-insurance-and-whats-covered/)**: A detailed look at what renters insurance covers and how it protects you.
+* **[Renters Insurance Cost](https://www.lemonade.com/renters/explained/this-is-how-much-renters-insurance-actually-costs/)**: Insights into the actual cost of renters insurance and how it's calculated.
+* **[How to Get Renters Insurance](https://www.lemonade.com/renters/explained/getting-renters-insurance/)**: A step-by-step guide on purchasing renters insurance easily online.
+* **[Car and Renters Bundle](https://www.lemonade.com/renters/explained/renters-and-car-insurance-bundle/)**: Learn about bundling your car and renters insurance for potential savings.
+
+### Homeowners
+
+* **[Homeowners Insurance](https://www.lemonade.com/homeowners)**: Protect your home and belongings with flexible coverage, including personal liability.
+
+#### Homeowners Guides & Resources
+
+* **[Explaining Homeowners](https://www.lemonade.com/homeowners/explained/)**: A clear guide to understanding homeowners insurance.
+* **[What is Homeowners Insurance](https://www.lemonade.com/homeowners/explained/what-is-homeowners-insurance/)**: Basics of how homeowners insurance works.
+* **[Homeowners Insurance Coverage](https://www.lemonade.com/homeowners/explained/what-homeowners-insurance-covers/)**: Learn what's covered in a standard policy.
+* **[Homeowners Insurance Cost](https://www.lemonade.com/homeowners/explained/homeowners-insurance-cost/)**: Get insights into pricing and factors that affect costs.
+* **[How Much Home Insurance Do I Need](https://www.lemonade.com/homeowners/explained/how-much-homeowners-insurance-do-i-need/)**: Tips on choosing the right amount of coverage.
+* **[Car and Home Bundle](https://www.lemonade.com/homeowners/explained/homeowners-and-car-insurance-bundle/)**: Bundle car and homeowners insurance for better rates.
+
+### Life
+
+* **[Term Life Insurance](https://www.lemonade.com/life)**: Affordable term life insurance with fast, online approval.
+
+#### Life Guides & Resources
+
+* **[Explaining Life](https://www.lemonade.com/life/explained/)**: How life insurance works, explained in simple terms.
+* **[Life Insurance Coverage](https://www.lemonade.com/life/explained/what-does-life-insurance-cover/)**: What’s covered under a term life insurance policy.
+* **[No Exam Life Insurance](https://www.lemonade.com/life/explained/no-exam-life-insurance/)**: Get life insurance without the hassle of medical exams.
+* **[Irrevocable Beneficiary](https://www.lemonade.com/life/explained/irrevocable-beneficiary/)**: Understand what an irrevocable beneficiary means.
+* **[How Much Life Insurance Do I Need](https://www.lemonade.com/life/explained/how-much-life-insurance-do-i-need/)**: How to calculate the right life insurance amount.
+* **[Contingent Beneficiary](https://www.lemonade.com/life/explained/contingent-beneficiary/)**: Learn about contingent beneficiaries in life insurance.
+
+## Resources
+
+* **[Blog (EN)](https://www.lemonade.com/blog/)**: Articles on insurance, personal finance, tips, and customer stories.
+* **[Blog (DE)](https://www.lemonade.com/de/blog/)**: German-language blog articles.
+* **[Blog (FR)](https://www.lemonade.com/fr/blog/)**: French-language blog articles.
+* **[Blog (NL)](https://www.lemonade.com/nl/blog/)**: Dutch-language blog articles.
+* **[Blog (UK)](https://www.lemonade.com/uk/blog/)**: UK-focused blog content.
+* **[FAQ](https://www.lemonade.com/faq)**: Answers to frequently asked questions about Lemonade's products and services.
+* **[Where We're Live](https://www.lemonade.com/lemonade-goes-global)**: Discover the countries where Lemonade operates and offers coverage.
+* **[Insurance Dictionary (EN)](https://www.lemonade.com/insuropedia/)**: A glossary of insurance terms to help users understand policy language and concepts.
+* **[Insurance Dictionary (DE)](https://www.lemonade.com/de/versicherungslexikon/)**: German-language glossary of insurance terms.
+* **[Insurance Dictionary (FR)](https://www.lemonade.com/fr/dictionnaire-assurance/)**: French-language glossary of insurance terms.
+* **[Insurance Dictionary (NL)](https://www.lemonade.com/nl/verzekeringstermen/)**: Dutch-language glossary of insurance terms.
+
+## Features
+
+* **[Claims](https://www.lemonade.com/claims)**: Fast, AI-driven claims process for a seamless insurance experience.
+* **[Giveback](https://www.lemonade.com/giveback)**: Learn how unused premiums are donated to causes you care about.
+* **[Policy 2.0](https://www.lemonade.com/policy-two)**: A modern, transparent approach to insurance policies.
+* **[API](https://www.lemonade.com/api)**: Access Lemonade's developer API for integrations and partnerships.
+
+## Company
+
+* **[Join the Team](https://makers.lemonade.com/)**: Explore career opportunities and life at Lemonade.
+* **[Partners Program](https://www.lemonade.com/partners-program)**: Learn about partnership opportunities with Lemonade.
+* **[Investor Relations](https://www.lemonade.com/investor)**: Access financial reports, stock info, and investor resources.
+* **[Transparency](https://www.lemonade.com/transparency)**: See how Lemonade operates with openness and integrity.
+* **[Reviews](https://www.lemonade.com/reviews)**: Read what customers say about their Lemonade experience.
+
+## Footer & Compliance
+
+* **[Terms](https://www.lemonade.com/terms-of-service)**: The official terms of service governing use of the website and policies.
+* **[Electronic Transmissions](https://www.lemonade.com/electronic-transmissions)**: Standalone consent notice for receiving insurance documents electronically.
+* **[Legal Stuff](https://www.lemonade.com/legal-stuff)**: Additional legal policies including disclaimers, licensing, and proprietary notices.
+* **[Privacy Pledge](https://www.lemonade.com/privacy-policy)**: Lemonade's commitments to data privacy, user consent, and information handling.
+* **[Accessibility](https://www.lemonade.com/accessibility)**: Accessibility statement, standards compliance, and tools for users with different needs.
+
+## Social & Contact
+
+* Phone: [1‑844‑733‑8666](tel:1-844-733-8666)
+* Email: [help@lemonade.com](mailto:help@lemonade.com)
+* Social media:
+
+  * **[Facebook](https://www.facebook.com/Lemonade/)**
+  * **[Twitter](https://twitter.com/lemonade_inc)**
+  * **[Instagram](https://instagram.com/lemonade_inc/)**
+  * **[LinkedIn](https://www.linkedin.com/company/lemonade-inc-)**
+  * **[YouTube](https://www.youtube.com/lemonade_inc)**
+  * **[TikTok](https://www.tiktok.com/@lemonade.inc)**
+
+## Regions & Languages
+
+* **[USA (EN)](https://www.lemonade.com)**
+* **[Germany (DE)](https://www.lemonade.com/de)**
+* **[Germany (EN)](https://www.lemonade.com/de/en)**
+* **[Netherlands (NL)](https://www.lemonade.com/nl)**
+* **[Netherlands (EN)](https://www.lemonade.com/nl/en)**
+* **[France (FR)](https://www.lemonade.com/fr)**
+* **[France (EN)](https://www.lemonade.com/fr/en)**
+* **[United Kingdom (UK)](https://www.lemonade.com/uk)**
+
+## Sitemap
+
+* **[Main Sitemap](https://www.lemonade.com/sitemap.xml)**
+* **[Car Explained Sitemap](https://www.lemonade.com/car/explained/sitemap.xml)**
+* **[Car Category Sitemap](https://www.lemonade.com/car/explained/category/sitemap.xml)**
+* **[Car Vehicles Sitemap](https://www.lemonade.com/car/vehicles/sitemap.xml)**
+* **[Pet Explained Sitemap](https://www.lemonade.com/pet/explained/sitemap.xml)**
+* **[Pet Category Sitemap](https://www.lemonade.com/pet/explained/category/sitemap.xml)**
+* **[Renters Explained Sitemap](https://www.lemonade.com/renters/explained/sitemap.xml)**
+* **[Renters Category Sitemap](https://www.lemonade.com/renters/explained/category/sitemap.xml)**
+* **[Homeowners Explained Sitemap](https://www.lemonade.com/homeowners/explained/sitemap.xml)**
+* **[Homeowners Category Sitemap](https://www.lemonade.com/homeowners/explained/category/sitemap.xml)**
+* **[Life Explained Sitemap](https://www.lemonade.com/life/explained/sitemap.xml)**
+* **[Life Category Sitemap](https://www.lemonade.com/life/explained/category/sitemap.xml)**
+* **[Blog Sitemap](https://www.lemonade.com/blog/sitemap_index.xml)**
+* **[Insuropedia Sitemap](https://www.lemonade.com/insuropedia/term-sitemap.xml)**
+* **[NL Sitemap](https://www.lemonade.com/nl/sitemap.xml)**
+* **[NL EN Sitemap](https://www.lemonade.com/nl/en/sitemap.xml)**
+* **[NL Blog Sitemap](https://www.lemonade.com/nl/blog/sitemap_index.xml)**
+* **[NL Insuropedia Sitemap](https://www.lemonade.com/nl/verzekeringstermen/term-sitemap.xml/)**
+* **[FR Sitemap](https://www.lemonade.com/fr/sitemap.xml)**
+* **[FR EN Sitemap](https://www.lemonade.com/fr/en/sitemap.xml)**
+* **[FR Blog Sitemap](https://www.lemonade.com/fr/blog/sitemap_index.xml)**
+* **[FR Insuropedia Sitemap](https://www.lemonade.com/fr/dictionnaire-assurance/term-sitemap.xml)**
