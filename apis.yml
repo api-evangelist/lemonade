@@ -62,8 +62,6 @@ apis:
     type: Documentation
   - url: https://www.lemonade.com/blog/introducing-lemonade-insurance-api/
     type: Announcement
-  - url: graphql/lemonade-graphql.md
-    type: GraphQL
 common:
 - type: VulnerabilityDisclosure
   url: security/lemonade-vulnerability-disclosure.yml
