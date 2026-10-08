@@ -64,6 +64,12 @@ apis:
   - url: https://www.lemonade.com/blog/introducing-lemonade-insurance-api/
     type: Announcement
 common:
+- type: Plans
+  url: plans/lemonade-plans-pricing.yml
+- type: RateLimits
+  url: rate-limits/lemonade-rate-limits.yml
+- type: FinOps
+  url: finops/lemonade-finops.yml
 - type: VulnerabilityDisclosure
   url: security/lemonade-vulnerability-disclosure.yml
 - type: DomainSecurity
