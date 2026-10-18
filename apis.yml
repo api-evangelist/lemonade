@@ -35,6 +35,12 @@ access: 3rd-Party
 tags:
 - Insurance
 - Renters Insurance
+- Home Insurance
+- Embedded Insurance
+- Property and Casualty
+tags_raw:
+- Insurance
+- Renters Insurance
 - Homeowners Insurance
 - Embedded Insurance
 - Property and Casualty
