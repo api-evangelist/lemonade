@@ -1,4 +1,4 @@
-# Lemonade (lemonade)
+# Lemonade
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -66,52 +66,110 @@
 
 Lemonade, Inc. is an American insurance company. The company offers renters, homeowners, car, pet, and term life insurance in the United States, as well as contents and liability policies in Germany and the Netherlands and renters insurance in France. The Lemonade Insurance API allows partners to embed insurance quoting, policy creation, and payment flows for homeowners, condo, and renters policies into their own websites and apps.
 
-**APIs.json:** [apis.yml](apis.yml)
+**Areas:** Insurance · Renters Insurance · Home Insurance · Embedded Insurance · Property and Casualty
 
-## Scope
+## Lemonade on APIs.io
 
-- **Type:** Contract
-- **Access:** 3rd-Party
+Everything profiled for Lemonade is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/lemonade/](https://apis.io/providers/lemonade/)** — or go straight to one of the APIs or properties below.
 
-## Tags
+### APIs (1)
 
-- Insurance
-- Renters Insurance
-- Homeowners Insurance
-- Embedded Insurance
+- [Lemonade Insurance API](https://apis.io/apis/lemonade/lemonade-insurance-api/) — A quick and easy way for partners to offer Lemonade homeowners, condo, and renters insurance to their users. Supports quoting, policy creation, and payment,…
 
-## Timestamps
+### Published properties
 
-- **Created:** 2024-07-02
-- **Modified:** 2026-04-28
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-## APIs
+#### GraphQL (1)
 
-### Lemonade Insurance API
+GraphQL schemas.
 
-A quick and easy way for partners to offer Lemonade homeowners, condo, and renters insurance to their users. Two integration modes are supported: a one-line drop-in that renders the customizable Maya bot for quote-to-bind in a window, and a more advanced direct mode that lets partners control each step of the quote, policy, and payment flow themselves. A public OpenAPI specification has not been observed; the technical reference lives behind Lemonade's developer portal.
+- [Moved to /providers/lemonade/](https://apis.io/graphqls/lemonade/lemonade-graphql/)
 
-- **Documentation:** https://www.lemonade.com/api
-- **Developer Portal:** https://api-doc-portal.lemonade.com/
-- **Announcement:** https://www.lemonade.com/blog/introducing-lemonade-insurance-api/
+#### Security (2)
 
-#### Tags
+Authentication, trust centre, and vulnerability disclosure.
 
-- Insurance, Quotes, Policies, Payments
+- [Lemonade Domain Security](https://apis.io/security/lemonade/lemonade-domain-security/)
+- [Lemonade Vulnerability Disclosure](https://apis.io/security/lemonade/lemonade-vulnerability-disclosure/)
 
-## Common Properties
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [Lemonade Plans Pricing](https://apis.io/plans/lemonade/lemonade-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Lemonade Rate Limits](https://apis.io/rate-limits/lemonade/lemonade-rate-limits/)
+
+#### FinOps (1)
+
+What the API costs to run, by operation.
+
+- [Lemonade Finops](https://apis.io/finops/lemonade/lemonade-finops/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
 
 - [Website](https://www.lemonade.com/)
 - [Documentation](https://www.lemonade.com/api)
-- [DeveloperPortal](https://api-doc-portal.lemonade.com/)
 - [Blog](https://www.lemonade.com/blog/)
-- [FAQ](https://www.lemonade.com/faq)
-- [Partners](https://www.lemonade.com/partners-program)
-- [TermsOfService](https://www.lemonade.com/api-terms)
-- [PrivacyPolicy](https://www.lemonade.com/privacy-policy)
-- [GitHub](https://github.com/lemonade-hq)
+- [Terms of service](https://www.lemonade.com/api-terms)
+- [Privacy policy](https://www.lemonade.com/privacy-policy)
 
-## Maintainers
+## API Evangelist rating
 
-- **FN:** Kin Lane
-- **Email:** kin@apievangelist.com
+**Kin Score 18.3** — emerging · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 64.3 |
+| Contract quality | 0.0 |
+| Contract governance | 0.0 |
+| Operational transparency | 13.2 |
+| Developer ergonomics | 21.4 |
+| Access clarity | 28.9 |
+
+**Agent readiness 0.6** — human-only
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | — |
+| Agentic Access | — |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | — |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | derived (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 17.5** — Insurance
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/lemonade/](https://apis.io/providers/lemonade/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Lemonade: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/lemonade/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
